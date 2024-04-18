@@ -28,13 +28,12 @@ connectDB();
 // File();
 
 const app = express();
-let corsOptions = {
-  origin: function (_, callback) {
-    callback(null, true);
-  },
-  credentials: true,
-};
 
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 app.use(cors(corsOptions));
 
 app.use(express.json());
