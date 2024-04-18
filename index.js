@@ -28,24 +28,13 @@ connectDB();
 // File();
 
 const app = express();
-let whitelist = [
-  "http://localhost:5173",
-  "http://127.0.0.1:5173",
-  "https://testfevercel.vercel.app",
-];
 let corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin) {
-      return callback(null, true);
-    }
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
+  origin: function (_, callback) {
+    callback(null, true);
   },
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 app.use(express.json());
