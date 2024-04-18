@@ -31,10 +31,12 @@ const app = express();
 
 const corsOptions = {
   origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
-app.use(cors(corsOptions));
+
+app(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
