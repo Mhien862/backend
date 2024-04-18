@@ -40,6 +40,7 @@ import {
   sendEmail,
 } from "../controllers/marketingCoordinatorController.js";
 import { isMarketingCoordinator } from "../middlewares/marketingCoordinatorMiddlewares.js";
+import { root } from "../controllers/rootController.js";
 const router = express.Router();
 
 //User role
@@ -87,5 +88,7 @@ router.get(
   isMarketingCoordinator,
   getContributionsPerFaculty
 );
+
+router.get("/", root);
 
 export default router;

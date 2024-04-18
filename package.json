@@ -28,7 +28,7 @@
     "validator": "^13.11.0"
   },
   "scripts": {
-    "backend": "nodemon be/index.js",
+    "backend": "nodemon index.js",
     "frontend": "npm run dev --prefix fe",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
